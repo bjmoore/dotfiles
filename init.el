@@ -5,15 +5,20 @@
 (package-refresh-contents)
 
 (use-package evil)
-(use-package rust-mode)
 (use-package lsp-mode
   :ensure t
   :init
   (setq lsp-keymap-prefix "C-c l")
   :config
-  (add-hook 'rust-mode-hook 'lsp))
+  (add-hook 'rust-ts-mode-hook 'lsp-deferred)
+  (add-hook 'typescript-ts-mode-hook 'lsp-deferred))
 
 (setq backup-directory-alist '(("." . "~/.emacs-bak")))
+(setq treesit-language-source-alist
+      '((rust "https://github.com/tree-sitter/tree-sitter-rust")
+	(typescript "https://github.com/tree-sitter/tree-sitter-typescript" "master" "typescript/src")))
+
+(evil-mode 1)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
