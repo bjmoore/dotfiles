@@ -17,6 +17,8 @@
 (setq treesit-language-source-alist
       '((rust "https://github.com/tree-sitter/tree-sitter-rust")
 	(typescript "https://github.com/tree-sitter/tree-sitter-typescript" "master" "typescript/src")))
+(setq major-mode-remap-alist
+      '((rust-mode . rust-ts-mode)))
 
 (evil-mode 1)
 
