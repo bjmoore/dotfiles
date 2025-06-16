@@ -9,6 +9,7 @@
   :ensure t
   :init
   (setq lsp-keymap-prefix "C-c l")
+  (setq lsp-diagnostics-provider :none)
   :config
   (add-hook 'rust-ts-mode-hook 'lsp-deferred)
   (add-hook 'typescript-ts-mode-hook 'lsp-deferred))
