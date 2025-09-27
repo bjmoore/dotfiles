@@ -4,6 +4,8 @@
 (package-initialize)
 (package-refresh-contents)
 
+(setq inhibit-splash-screen t)
+
 (use-package evil
   :ensure t)
 (use-package flycheck
