@@ -5,6 +5,8 @@
 (package-refresh-contents)
 
 (setq inhibit-splash-screen t)
+(menu-bar-mode -1)
+(tool-bar-mode -1)
 
 (use-package evil
   :ensure t)
@@ -14,6 +16,10 @@
   :ensure t)
 (use-package company
   :ensure t)
+(use-package weyland-yutani-theme
+  :ensure t)
+
+(load-theme `weyland-yutani t)
 
 (with-eval-after-load 'rust-ts-mode
   (add-hook 'flycheck-mode-hook #'flycheck-rust-setup))
@@ -41,8 +47,8 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(company evil flycheck flycheck-rust
-	     gnu-elpa-keyring-update lsp-mode rust-mode)))
+   '(company evil flycheck flycheck-rust gnu-elpa-keyring-update lsp-mode
+	     rust-mode weyland-yutani-theme)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
