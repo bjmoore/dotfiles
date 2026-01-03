@@ -7,6 +7,7 @@
 (setq inhibit-splash-screen t)
 (menu-bar-mode -1)
 (tool-bar-mode -1)
+(scroll-bar-mode -1)
 
 (use-package evil
   :ensure t)
@@ -33,11 +34,17 @@
   (add-hook 'typescript-ts-mode-hook 'lsp-deferred))
 
 (setq backup-directory-alist '(("." . "~/.emacs-bak")))
-(setq treesit-language-source-alist
-      '((rust "https://github.com/tree-sitter/tree-sitter-rust")
-	(typescript "https://github.com/tree-sitter/tree-sitter-typescript" "master" "typescript/src")))
 (setq major-mode-remap-alist
       '((rust-mode . rust-ts-mode)))
+
+(setq treesit-language-source-alist
+      '((bash . ("https://github.com/tree-sitter/tree-sitter-bash" "v0.23.3" nil nil nil))
+        (go . ("https://github.com/tree-sitter/tree-sitter-go" "v0.23.4" nil nil nil))
+        (gomod . ("https://github.com/camdencheek/tree-sitter-go-mod" "v1.0.2" nil nil nil))
+        (python . ("https://github.com/tree-sitter/tree-sitter-python" "v0.23.6" nil nil nil))
+	(rust . ("https://github.com/tree-sitter/tree-sitter-rust" "v0.23.2" nil nil nil))
+	(typescript . ("https://github.com/tree-sitter/tree-sitter-typescript" "v0.23.2" "typescript/src" nil nil))
+	(tsx . ("https://github.com/tree-sitter/tree-sitter-typescript" "v0.23.2" "tsx/src" nil nil))))
 
 (evil-mode 1)
 
